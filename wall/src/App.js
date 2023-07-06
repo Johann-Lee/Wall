@@ -1,62 +1,79 @@
 import './App.css';
 import { Tabs, TabList, TabPanels, Tab, TabPanel, Center, useColorMode, Container } from '@chakra-ui/react'
 
-import { ChakraProvider, Box, Flex, Heading, AspectRatio, Image, Spacer, Divider, Wrap } from '@chakra-ui/react'
+import { ChakraProvider, Box, Flex, Heading, AspectRatio, Image, Spacer, Divider, Wrap, Card, CardBody, CardFooter, Stack, Text, Button} from '@chakra-ui/react'
 
 //images
 import me from './images/me.jpg'
-
+import mix from './images/mix.jpg'
 import theme from './theme';
 
 function App() {
  
   return (
-    <ChakraProvider theme={theme}>
+    <ChakraProvider>
 
-    <Container size="lg" paddingLeft='calc(100vw - 100%)'>
-      <Flex justifyContent='center' margin={8}>
-        <Heading align='center'>
+    <Flex paddingLeft='calc(100vw - 100%)' margin={25} flexDirection='column'>
+        <Heading align='center' paddingBottom={10}>
           Johann Lee
         </Heading>
-    </Flex>
 
-    
-
+  
     <Divider/>
 
-        <Tabs align='center' variant='soft-rounded' colorScheme='teal'>
+        <Tabs align='center' variant='soft-rounded' colorScheme='teal' paddingTop={4} >
 
-            <TabList margin={5}>
+            <TabList paddingBottom={2}>
               <Tab>About</Tab>
-              <Tab>Experience</Tab>
+              <Tab>Work</Tab>
+              <Tab>Music</Tab>
               <Tab>Photography</Tab>
-              <Tab>SoundCloud</Tab>
             </TabList>
             
             
             <TabPanels>
-              <TabPanel>
+              <TabPanel>        
+              <Card
+                  direction={{ base: 'column', sm: 'row' }}
+                  overflow='hidden'
+                  variant='outline'
+                  colorScheme='blue'
+              >
+              <Stack>
+                <CardBody>
+                  <Heading size='md'></Heading>
 
-              <Flex flexWrap="wrap">
-                      Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, 
-                      Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, 
-                      Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, 
-                      Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, 
-                      Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here,
-                      Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, Insert Bio here, 
-              </Flex> 
+                  <Text py='2'>
+                  I'm a Software Engineer who recently graduated from Rochester Institute of Technology.
+                  When I think about Software Engineering I like to think about how much we don't know what's happening around us.
+                  I'm curious about a lot of things I can't see and that's what drew me towards Backend Engineering specifically. Making a change even if its not visual goes a long way.
+                  <br/><br/>
+                  Since I was a kid, electronic music has been a part of my life. Now I like to mix techno and picked up DJing as a hobby.
+                  <br/><br/>
+                  Photography has interested me ever since I picked up a smarthphone. 
+                  <br/><br/>
+                  This page is about me and my interests.
 
-
+                   
+                
+                  </Text>
+                </CardBody>
+              </Stack>
+              <Image
+                objectFit='cover'
+                maxW={{ base: '100%', sm: '275px' }}
+                src={me}
+                alt='Johann Lee'
+              />
+              </Card> 
+              <br/>
+              <br/>
+             
               </TabPanel>
               
 
               <TabPanel>
                 <Flex></Flex>
-              </TabPanel>
-
-        
-              <TabPanel>
-                <p>Insert photos</p>
               </TabPanel>
 
               <TabPanel> 
@@ -66,10 +83,16 @@ function App() {
                  </div>
                  </AspectRatio>
               </TabPanel>
+        
+              <TabPanel>
+                <p>Insert photos</p>
+              </TabPanel>
 
             </TabPanels>
-        </Tabs> 
-        </Container>
+        </Tabs>
+        <br/>
+        <Divider/> 
+        </Flex>
     </ChakraProvider>
   );
 }
